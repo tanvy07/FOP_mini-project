@@ -1,0 +1,101 @@
+LOGIN SYSTEM :-
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char u[20], p[20];
+    printf(" LOGIN SYSTEM\n");
+    printf("Username: ");
+    scanf("%s", u);
+
+    printf("Password: ");
+    scanf("%s", p);
+
+    if(strcmp(u,"admin")==0 && strcmp(p,"1234")==0)
+        printf("Login Successful");
+    else
+        printf("Invalid Login");
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------
+MINI-DASHBOARD:-
+#include<stdio.h>
+int main() 
+{
+    int quantity[20]  = {40,35,25,20,50,18,12,60,45,22,15,30,18,55,28,26,20,14,65,80};
+    int threshold[20] = {15,15,10,8,20,10,10,25,20,10,8,15,10,25,10,10,10,8,30,40};
+
+    int totalItems = 20;
+    int totalStock = 0;
+    int lowStockItems = 0;
+
+    for(int i = 0; i < totalItems; i++)
+        {
+        totalStock += quantity[i];
+        if(quantity[i] <= threshold[i]) 
+        {
+            lowStockItems++;
+        }
+    }
+    printf(" MINI DASHBOARD\n");
+    printf("Total Items     : %d\n", totalItems);
+    printf("Total Stock     : %d\n", totalStock);
+    printf("Low Stock Alerts: %d\n", lowStockItems);
+    return 0;
+}
+---------------------------------------------------------------------------------------------------
+TRACKING SYSTEM:-
+#include <stdio.h>
+int main() 
+{
+    int id[5] = {101,102,103,104,105};
+    int quantity[5] = {40,35,25,20,50};
+    float price[5] = {420,260,180,95,45};
+    printf("TRACKING SYSTEM\n");
+    int search, i;
+    printf("Enter Item ID: ");
+    scanf("%d", &search);
+    for(i = 0; i < 5; i++)
+        {
+        if(search==id[i])
+        {
+            printf("Item Found\n");
+            printf("Quantity: %d\n", quantity[i]);
+            printf("Price: %.2f\n", price[i]);
+            return 0; 
+        }
+    }
+    printf("Item not found");
+    return 0;
+}
+------------------------------------------------------------------------------------------------------
+LOW STOCKS ALERT:-
+#include <stdio.h>
+struct Item
+{
+    int id;
+    int quantity;
+    int threshold;
+};
+int main()
+{
+    struct Item items[5] =
+    {
+        {101,40,15},
+        {102,35,15},
+        {103,8,10},
+        {104,5,8},
+        {105,50,20}
+    };
+    int i;
+    printf("LOW STOCK ALERT\n");
+    for(i = 0; i < 5; i++) {
+        if(items[i].quantity <= items[i].threshold)
+        {
+            printf("Item ID %d is LOW in stock (Qty: %d)\n",
+                   items[i].id, items[i].quantity);
+        }
+    }
+    return 0;
+}
